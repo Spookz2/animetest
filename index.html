@@ -2,164 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPKTOK (Mockup)</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: #000;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            background-color: #000;
-            color: white;
-            align-items: center;
-        }
-        .navbar i {
-            font-size: 30px;
-            cursor: pointer;
-        }
-        .home, .friends, .inbox, .profile {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: white;
-        }
-        .active {
-            display: flex;
-        }
-        .video-feed {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
-        }
-        .video-item {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        .video-item video {
-            max-width: 100%;
-            height: auto;
-        }
-        .upload-btn, .login-btn, .sign-up-btn {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-        }
-        .upload-btn:hover, .login-btn:hover, .sign-up-btn:hover {
-            background-color: #555;
-        }
-        .profile-info {
-            margin-top: 20px;
-        }
-        .verified {
-            color: #1da1f2;
-            font-weight: bold;
-        }
-    </style>
+    <title>Tik Tok Clone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="navbar">
-    <i id="home-btn" class="fa fa-home" onclick="showPage('home')"></i>
-    <i id="friends-btn" class="fa fa-users" onclick="showPage('friends')"></i>
-    <i id="inbox-btn" class="fa fa-envelope" onclick="showPage('inbox')"></i>
-    <i id="profile-btn" class="fa fa-user" onclick="showPage('profile')"></i>
-</div>
-
-<div class="container">
-    <!-- Home (FYP) -->
-    <div id="home" class="home active">
-        <div class="video-feed">
-            <div class="video-item">
-                <video autoplay loop muted>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                </video>
-                <div class="overlay">
-                    <p>Swipe up for next</p>
-                    <p>Cool TikTok Video</p>
-                </div>
+  <div class="container">
+    <div class="video-container">
+      <div class="post">
+        <div class="video-player">
+          <video poster="https://wallpapercave.com/wp/wp4273083.jpg" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" autoplay="" loop="" class="post-video"></video>
+        </div>
+        <div class="side-bar">
+          <div class="side-icon profile-follow">
+            <div class="profile-logo">
+              <img src="https://assets.codepen.io/2483051/internal/avatars/users/default.png?fit=crop&format=auto&height=80&version=1636466200&width=80" class="profile-logo-img" alt="">
             </div>
+            <i class="fa fa-plus"></i>
+          </div>
+          <div class="side-icon like-btn">
+            <i class="fa fa-heart-o like-icon"></i>
+            <p class="like-number">789</p>
+          </div>
+
+          <div class="side-icon comment-btn">
+            <i class="fa fa-comment comment-icon"></i>
+            <p class="comment-number">184</p>
+          </div>
+
+          <div class="side-icon share-btn">
+            <i class="fa fa-share share-icon"></i>
+            <p class="share-number">10</p>
+          </div>
+
         </div>
-    </div>
-
-    <!-- Friends -->
-    <div id="friends" class="friends">
-        <button class="upload-btn" onclick="uploadVideo()">Upload Video</button>
-    </div>
-
-    <!-- Inbox (Friends List) -->
-    <div id="inbox" class="inbox">
-        <p>Inbox (Friend profiles here)</p>
-    </div>
-
-    <!-- Profile -->
-    <div id="profile" class="profile">
-        <div class="profile-info">
-            <p id="username">SPKTOK</p>
-            <p class="verified">✔️ Verified</p>
+        <div class="post-comments ">
+          <span class="close-comment">×</span>
+          <div class="post-comments-area">
+            <div class="post-comment">
+              <div class="post-comment-user">
+                <img src="https://assets.codepen.io/2483051/internal/avatars/users/default.png?fit=crop&format=auto&height=80&version=1636466200&width=80" class="post-comment-user-img">
+              </div>
+              <div class="post-comment-content">
+                <div class="post-comment-user-name verfied">
+                  <a href="https://instagram.com/sahilverma.dev">sahilverma.dev</a>
+                  <i class="fa fa-check post-comment-user-verified"></i>
+                </div>
+                <div class="post-comment-user-msg">
+                  Follow me on instagram
+                </div>
+              </div>
+              <div class="post-comment-like-btn">
+                <i class="fa fa-heart-o post-comment-like-icon"></i>
+                <p class="post-comment-like-number">9</p>
+              </div>
+            </div>
+          </div>
+          <div class="post-comment-input">
+            <input type="text" name="" class="post-comment-text" placeholder="Enter somethings good...." />
+            <button class="post-comment-send"><i class="fa fa-send send-btn"></i></button>
+          </div>
         </div>
-        <button class="login-btn" onclick="login()">Login</button>
-        <button class="sign-up-btn" onclick="signUp()">Sign Up</button>
+        <div class="post-footer">
+          <div class="username verfied">
+            <a href="https://instagram.com/sahilverma.dev" class="username-link">sahilverma.dev</a>
+            <i class="fa fa-check verfied-icon"></i>
+          </div>
+          <p class="post-description">
+            This is a Tik Tok Clone with working Video Player, Like button and comment. But comments dosen't store in any backend.
+          </p>
+
+          <div class="music-name">
+            <i class="fa fa-music"></i>
+            <marquee behavior="" direction="" class="song-name">Tungevaag, Raaban - Bad Boy </marquee>
+          </div>
+
+        </div>
+        <div class="disc-logo">
+          <img src="https://www.nicepng.com/png/detail/329-3297274_compact-disc-cd-comments-disc-icon-png.png" alt="" class="disc-logo-img">
+        </div>
+      </div>
+
     </div>
-</div>
-
-<script>
-    let currentPage = "home";
-
-    function showPage(page) {
-        document.getElementById(currentPage).classList.remove("active");
-        document.getElementById(page).classList.add("active");
-        currentPage = page;
-    }
-
-    function uploadVideo() {
-        const videoFile = prompt("Enter video file URL to upload:");
-        if (videoFile) {
-            alert("Video uploaded successfully!");
-            // Here you'd add the video to the user's feed (needs backend implementation)
-        }
-    }
-
-    function login() {
-        const username = prompt("Enter your username:");
-        const password = prompt("Enter your password:");
-        alert("Logged in successfully!");
-        // Backend authentication should be implemented here
-    }
-
-    function signUp() {
-        const nickname = prompt("Choose a nickname:");
-        const password = prompt("Choose a password:");
-        alert("Signed up successfully!");
-        // Backend sign-up implementation goes here
-    }
-</script>
-
+  </div>
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
