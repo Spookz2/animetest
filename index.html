@@ -3,64 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPKTOK</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet"> <!-- Similar font -->
+    <title>SPKTOK (Mockup)</title>
     <style>
-        body {
-            background-color: black;
-            font-family: 'Gloock', sans-serif;
-            color: white;
-            text-align: center;
+        body, html {
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
         }
-
-        h1 {
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #000;
+            color: white;
+            align-items: center;
+        }
+        .navbar i {
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .home, .friends, .inbox, .profile {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: white;
+        }
+        .active {
+            display: flex;
+        }
+        .video-feed {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+        .video-item {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .video-item video {
+            max-width: 100%;
+            height: auto;
+        }
+        .upload-btn, .login-btn, .sign-up-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .upload-btn:hover, .login-btn:hover, .sign-up-btn:hover {
+            background-color: #555;
+        }
+        .profile-info {
             margin-top: 20px;
         }
-
-        .button {
-            background-color: red;
-            color: white;
-            font-size: 24px;
+        .verified {
+            color: #1da1f2;
             font-weight: bold;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px; /* Curved button */
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: darkred;
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            font-weight: bold;
-            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-    <h1>SPKTOK</h1>
-    
-    <!-- Red curved button -->
-    <button class="button" onclick="window.location.href='https://www.happymod.com/tiktokmod-39-6-1-apk-download/'">
-        SPKTOK
-    </button>
+<div class="navbar">
+    <i id="home-btn" class="fa fa-home" onclick="showPage('home')"></i>
+    <i id="friends-btn" class="fa fa-users" onclick="showPage('friends')"></i>
+    <i id="inbox-btn" class="fa fa-envelope" onclick="showPage('inbox')"></i>
+    <i id="profile-btn" class="fa fa-user" onclick="showPage('profile')"></i>
+</div>
 
-    <!-- Footer message -->
-    <div class="footer">
-        Tiktok is only for mobile so far
+<div class="container">
+    <!-- Home (FYP) -->
+    <div id="home" class="home active">
+        <div class="video-feed">
+            <div class="video-item">
+                <video autoplay loop muted>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                </video>
+                <div class="overlay">
+                    <p>Swipe up for next</p>
+                    <p>Cool TikTok Video</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Friends -->
+    <div id="friends" class="friends">
+        <button class="upload-btn" onclick="uploadVideo()">Upload Video</button>
+    </div>
+
+    <!-- Inbox (Friends List) -->
+    <div id="inbox" class="inbox">
+        <p>Inbox (Friend profiles here)</p>
+    </div>
+
+    <!-- Profile -->
+    <div id="profile" class="profile">
+        <div class="profile-info">
+            <p id="username">SPKTOK</p>
+            <p class="verified">✔️ Verified</p>
+        </div>
+        <button class="login-btn" onclick="login()">Login</button>
+        <button class="sign-up-btn" onclick="signUp()">Sign Up</button>
+    </div>
+</div>
+
+<script>
+    let currentPage = "home";
+
+    function showPage(page) {
+        document.getElementById(currentPage).classList.remove("active");
+        document.getElementById(page).classList.add("active");
+        currentPage = page;
+    }
+
+    function uploadVideo() {
+        const videoFile = prompt("Enter video file URL to upload:");
+        if (videoFile) {
+            alert("Video uploaded successfully!");
+            // Here you'd add the video to the user's feed (needs backend implementation)
+        }
+    }
+
+    function login() {
+        const username = prompt("Enter your username:");
+        const password = prompt("Enter your password:");
+        alert("Logged in successfully!");
+        // Backend authentication should be implemented here
+    }
+
+    function signUp() {
+        const nickname = prompt("Choose a nickname:");
+        const password = prompt("Choose a password:");
+        alert("Signed up successfully!");
+        // Backend sign-up implementation goes here
+    }
+</script>
 
 </body>
 </html>
+
+
 
 
